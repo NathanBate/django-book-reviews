@@ -13,7 +13,7 @@ class Review(models.Model):
             MinValueValidator(1)
         ]
     )
-    book_review = models.TextField
+    book_review = models.TextField()
 
 class TopicTag(models.Model):
     book_review = models.ForeignKey(Review, on_delete=models.CASCADE)
