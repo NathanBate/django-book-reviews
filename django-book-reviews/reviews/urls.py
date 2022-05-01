@@ -2,7 +2,8 @@ from django.urls import path
 
 from . import views
 
+app_name = "reviews"
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('<int:review_id>/', views.review, name="review")
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name="review")
 ]

@@ -1,0 +1,17 @@
+{% extends "reviews/_layout.html" %}
+
+{% block content %}
+<h1>Book Reviews</h1>
+{% if reviews_list %}
+    <ul>
+        {% for review in reviews_list  %}
+            <li> 
+                <a href="{% url 'reviews:review' review.id %}">
+                    {{ review.book_title }}
+                </a>                
+            </li>
+        {% endfor %}    
+    </ul>
+    
+{% endif %}
+{% endblock %}

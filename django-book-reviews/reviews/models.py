@@ -1,22 +1,51 @@
+from datetime import datetime
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from pkg_resources import require
+from taggit.managers import TaggableManager
+from django.contrib import admin
 
 class Review(models.Model):
-    review_date = models.DateTimeField('date review was published')
-    book_title = models.CharField(max_length=255)
-    book_subtitle = models.CharField(max_length=255)
-    book_author = models.CharField(max_length=255)
+    post_date = models.DateField(
+        'Date of Review', 
+        default=datetime.now(),
+        
+    )
+    review_preview_text = models.TextField(
+        'Preview Text',
+        max_length=255, 
+        default="", 
+        help_text="Max 255 characters"
+    )
+    book_title = models.CharField("Title", max_length=255)
+    book_subtitle = models.CharField("Subtitle", max_length=255, blank=True)
+    book_author = models.CharField("Author",max_length=255, blank=True)
+    book_cover_image = models.ImageField("Cover Image",upload_to='images/', default="", blank=True)
     book_star_rating = models.IntegerField(
+        "Star Rating",
         default=3,
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
         ]
     )
-    book_review = models.TextField()
+    book_review_body_text = models.TextField("Review Text", blank=True)
+    topic_tags = TaggableManager("Topic Tags", blank=True)
 
-class TopicTag(models.Model):
-    book_review = models.ForeignKey(Review, on_delete=models.CASCADE)
-    topic_name = models.CharField(max_length=255)
-    topic_description = models.TextField
+    def __str__(self):
+        if len(self.book_subtitle) > 0: 
+            return self.book_title + ": " + self.book_subtitle
+        else:
+            return self.book_title
+
+
+    @admin.display(        
+        ordering='book_title',
+        description='Title',
+    )
+    def full_title(self) -> str: 
+        if len(self.book_subtitle) > 0: 
+            return self.book_title + ": " + self.book_subtitle
+        else:
+            return self.book_title
 

@@ -1,0 +1,14 @@
+{% extends "reviews/_layout.html" %}
+
+{% block content %}
+{% if review %}
+    <h1>Title: {{ review.book_title }}</h1>
+    <p>Author: {{ review.book_author }}</p>
+    <p>Review: {{ review.book_review }}</p>
+    {% if review.book_cover_image %}
+        <img 
+            src="{{ review.book_cover_image.url }}" 
+            alt="Book cover for {{ review.book_title }} by {{ review.book_author }}" />
+    {% endif %}
+{% endif %}
+{% endblock %}
