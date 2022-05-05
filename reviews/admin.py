@@ -14,6 +14,8 @@ class ReviewAdmin(admin.ModelAdmin):
     ]
 
     list_display = ('full_title', 'book_author', 'book_star_rating', 'topic_tags')
+    list_filter = ['post_date']
+    search_fields = ['book_title', 'book_subtitle', 'book_author', 'book_review_body_text']
 
 
 admin.site.register(Review, ReviewAdmin)
