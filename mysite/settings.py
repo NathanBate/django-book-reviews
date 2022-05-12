@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'reviews.apps.ReviewsConfig',
+    'django_light',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'mysite/admin_templates'],
+        'DIRS': [BASE_DIR / 'mysite' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

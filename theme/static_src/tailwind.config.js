@@ -11,20 +11,20 @@ module.exports = {
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
          */
 
-        /*  Templates within theme app (<tailwind_app_name>/admin_templates), e.g. base.html. */
-        '../admin_templates/**/*.html',
+        /*  Templates within theme app (<tailwind_app_name>/templates), e.g. base.html. */
+        '../templates/**/*.html',
 
         /* 
-         * Main admin_templates directory of the project (BASE_DIR/admin_templates).
+         * Main templates directory of the project (BASE_DIR/templates).
          * Adjust the following line to match your project structure.
          */
-        '../../admin_templates/**/*.html',
+        '../../templates/**/*.html',
         
         /* 
-         * Templates in other django apps (BASE_DIR/<any_app_name>/admin_templates).
+         * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
          * Adjust the following line to match your project structure.
          */
-        '../../**/admin_templates/**/*.html',
+        '../../**/templates/**/*.html',
 
         /**
          * JS: If you use Tailwind CSS in JavaScript, uncomment the following lines and make sure
