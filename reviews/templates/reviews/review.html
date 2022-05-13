@@ -7,7 +7,7 @@
     <p>Review: {{ review.book_review }}</p>
     {% if review.book_cover_image %}
         <img 
-            src="{{ review.book_cover_image.url }}" 
+            src="{{ review.book_cover_thumbnail.url }}"
             alt="Book cover for {{ review.book_title }} by {{ review.book_author }}" />
     {% endif %}
 {% endif %}

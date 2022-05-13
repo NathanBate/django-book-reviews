@@ -4,6 +4,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from pkg_resources import require
 from taggit.managers import TaggableManager
 from django.contrib import admin
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 class Review(models.Model):
     post_date = models.DateField(
@@ -20,7 +22,12 @@ class Review(models.Model):
     book_title = models.CharField("Title", max_length=255)
     book_subtitle = models.CharField("Subtitle", max_length=255, blank=True)
     book_author = models.CharField("Author",max_length=255, blank=True)
+
+    # cover image with its transformations
     book_cover_image = models.ImageField("Cover Image",upload_to='images/', default="", blank=True)
+    book_cover_thumbnail = ImageSpecField([ResizeToFill(200,292)], source='book_cover_image', format='JPEG',
+                                          options={ 'quality': 75 })
+
     book_star_rating = models.IntegerField(
         "Star Rating",
         default=3,
