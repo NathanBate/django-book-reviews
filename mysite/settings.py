@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'reviews.apps.ReviewsConfig',
+    'homepage.apps.HomepageConfig',
     'django_light',
     'django.contrib.admin',
     'django.contrib.auth',

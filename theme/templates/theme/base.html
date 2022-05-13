@@ -1,0 +1,16 @@
+{% load static %}
+{% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nathan's Book Reviews</title>
+        {% tailwind_css %}
+    </head>
+<body>
+
+    <div class="wrapper">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
