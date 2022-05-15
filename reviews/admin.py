@@ -13,7 +13,7 @@ class ReviewAdmin(admin.ModelAdmin):
         ('My Review',       {'fields': ['book_star_rating', 'book_review_body_text', 'topic_tags']})
     ]
 
-    list_display = ('full_title', 'book_author', 'book_star_rating', 'topic_tags')
+    list_display = ('full_title', 'book_author', 'book_star_rating')
     list_filter = ['post_date']
     search_fields = ['book_title', 'book_subtitle', 'book_author', 'book_review_body_text']
 

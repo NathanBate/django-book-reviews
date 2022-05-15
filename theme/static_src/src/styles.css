@@ -6,7 +6,7 @@
 @layer components {
 
     div.wrapper {
-        @apply bg-white p-10 m-auto max-w-[800px];    
+        @apply p-10 m-auto max-w-[800px];
     }
     
     h1 {

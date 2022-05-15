@@ -5,12 +5,27 @@
 <html>
     <head>
         <title>Nathan's Book Reviews</title>
+
+        {# Google Fonts #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+
         {% tailwind_css %}
     </head>
-<body>
+<body class="bg-white">
+    <div class="sticky w-full shadow">
+        <div class="max-w-3xl mx-auto py-8 px-2 flex flex-col items-center">
+            <img src="{% static 'Nathan-Pacific-Ocean-Circle.png' %}" class="w-36 h-36 mb-4" />
+            <div class="mr-6 font-handwriting font-bold text-4xl">Nathan's Book Reviews</div>
+        </div>
+    </div>
 
     <div class="wrapper">
-        {% block content %}{% endblock %}
+        <section class="bg-gray-100">
+            {% block content %}{% endblock %}
+        </section>
     </div>
+
 </body>
 </html>

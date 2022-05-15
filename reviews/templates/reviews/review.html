@@ -1,14 +1,17 @@
 {% extends "theme/base.html" %}
 
 {% block content %}
-{% if review %}
-    <h1>Title: {{ review.book_title }}</h1>
-    <p>Author: {{ review.book_author }}</p>
-    <p>Review: {{ review.book_review }}</p>
-    {% if review.book_cover_image %}
-        <img 
-            src="{{ review.book_cover_thumbnail.url }}"
-            alt="Book cover for {{ review.book_title }} by {{ review.book_author }}" />
-    {% endif %}
-{% endif %}
+    <div class="bg-gray-100 p-4">
+        {% if review %}
+            <h1>Title: {{ review.book_title }}</h1>
+            <p>Author: {{ review.book_author }}</p>
+            <p>Review: {{ review.book_review }}</p>
+            {% if review.book_cover_image %}
+                <img
+                    src="{{ review.book_cover_thumbnail.url }}"
+                    alt="Book cover for {{ review.book_title }} by {{ review.book_author }}" />
+            {% endif %}
+        {% endif %}
+    </div>
+
 {% endblock %}

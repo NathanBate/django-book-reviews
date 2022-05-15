@@ -42,7 +42,11 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'handwriting' : ['Homemade Apple', 'cursive'],
+            },
+        },
     },
     plugins: [
         /**
